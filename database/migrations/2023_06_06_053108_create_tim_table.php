@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('deskripsi_tim');
             $table->string('tanggal_berdiri');
             $table->string('anggota_id');
-            $table->foreign('anggota_id')->references('id')->on('anggota')->cascadeOnDelete()->cascadeOnDelete();
+            $table->foreign('anggota_id')->references('id')->on('anggota')->cascadeOnDelete()->cascadeOnDelete()->cascadeOnUpdate()->cascadeOnUpdate();
             $table->char('logo');
-            $table->string('kontak');
+            $table->string('kontak_tim');
             $table->timestamps();
         });
     }

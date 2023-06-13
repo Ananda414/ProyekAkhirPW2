@@ -1,7 +1,7 @@
 @extends('layout.main')
 
-@section('title', 'Tambah Anggota')
-@section('subtitle', 'Anggota')
+@section('title', 'Tambah Proyek')
+@section('subtitle', 'Proyek')
 @section('content')
 
             <div class="row">
@@ -10,7 +10,9 @@
                       <div class="card-body">
                         <h4 class="card-title">Tambah Proyek</h4>
                         <p class="card-description"> Masukkan data berikut untuk tambah proyek </p>
-                        <form class="forms-sample">
+                        <form class="forms-sample" action="{{ route('proyek.store')}}" method="POST"
+                        enctype="multipart/form-data">
+                        @csrf
                           <div class="form-group">
                             <label for="nama_proyek">Nama Proyek</label>
                             <input type="text" class="form-control" name="nama_proyek">
@@ -31,33 +33,23 @@
                           </div>
                           <div class="form-group">
                             <label for="budget">Budget</label>
-                            <input type="number" class="form-control" name="budget">
+                            <input type="text" class="form-control" name="budget">
                             @error('budget')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
                           </div>
                           <div class="form-group">
-                            <label for="anggota_id">Tim </label>
-                            <select multiple class="form-control" name="anggota_id">
-                                <option value="">Pilih Anggota</option>
+                            <label for="tim_id">Tim </label>
+                            <select multiple class="form-control" name="tim_id">
+                                <option value="">Pilih Tim</option>
                                 @foreach ($tim as $item)
-                                    <option value="{{ $item['id'] }}"> {{ $item['username'] }}</option>
+                                    <option value="{{ $item['id'] }}"> {{ $item['nama_tim'] }}</option>
                                 @endforeach
                             </select>
-                            @error('anggota_id')
+                            @error('tim_id')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
                           </div>
-                          {{-- <div class="form-group">
-                            <label>Logo Tim</label>
-                            <input type="file" name="logo" class="file-upload-default">
-                            <div class="input-group col-xs-12">
-                              <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Logo" name="gambar_logo">
-                              <span class="input-group-append">
-                                <button class="file-upload-browse btn btn-gradient-primary" type="button" name="upload">Upload</button>
-                              </span>
-                            </div>
-                          </div> --}}
                           <button type="submit" class="btn btn-primary me-2">Submit</button>
                           <a href="../../index.html" class="btn btn-light">Cancel</button>
                         </form>

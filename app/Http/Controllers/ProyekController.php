@@ -13,7 +13,7 @@ class ProyekController extends Controller
      */
     public function index()
     {
-        $proyek = Proyek::all();
+        $data = Proyek::all();
 
         $tim = Tim::orderBy('nama_tim', 'ASC')->get();
         return view('proyek/create')->with('tim', $tim);
@@ -32,7 +32,23 @@ class ProyekController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validasi = $request->validate([
+            'nama_proyek' => 'required',
+            'deskripsi_proyek' => 'nullable',
+            'deadline' => 'required',
+            'budget' => 'nullable',
+            'tim_id' => 'required'
+        ]);
+        // dd($validasi);
+
+            $proyek = new Proyek();
+            $proyek->nama_proyek = $validasi['nama_proyek'];
+            $proyek->deskripsi_proyek = $validasi['deskripsi_proyek'];
+            $proyek->deadline = $validasi['deadline'];
+            $proyek->budget = $validasi['budget'];
+            $proyek->tim_id = $validasi['tim_id'];
+            $proyek->save();
+            return redirect()->to('/listproyek')->with('success', "Data Proyek". $validasi['nama_proyek']. " berhasil disimpan");
     }
 
     /**

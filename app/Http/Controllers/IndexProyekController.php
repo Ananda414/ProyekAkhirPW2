@@ -13,7 +13,7 @@ class IndexProyekController extends Controller
     public function index()
     {
         $data = Proyek::all();
-        return view('proyek.index');
+        return view('proyek.index')->with('proyeks', $data);
     }
 
     /**

@@ -12,6 +12,14 @@ class Proyek extends Model
 
     protected $table = 'proyek';
 
+    protected $fillable = [
+        'nama_proyek' ,
+        'deskripsi_proyek' ,
+        'deadline' ,
+        'budget' ,
+        'tim_id'
+    ];
+
     public function tim() {
         return $this->belongsTo(Tim::class, 'tim_id');
     }

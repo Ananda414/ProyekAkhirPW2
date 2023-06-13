@@ -36,18 +36,21 @@ class TImController extends Controller
             'nama_tim' => 'required',
             'deskripsi_tim' => 'nullable',
             'tanggal_berdiri' => 'required',
+            'anggota_id' => 'nullable',
             'logo' => 'required',
             'kontak_tim' => 'required'
         ]);
+        // dd($validasi);
+
             $tim = new Tim();
             $tim->nama_tim = $validasi['nama_tim'];
             $tim->deskripsi_tim = $validasi['deskripsi_tim'];
             $tim->tanggal_berdiri = $validasi['tanggal_berdiri'];
-            $tim->kontak = $validasi['kontak_tim'];
-            $tim->kontak = $validasi['anggota_id'];
+            $tim->kontak_tim = $validasi['kontak_tim'];
+            $tim->anggota_id = $validasi['anggota_id'];
             $ext = $request->logo->getClientOriginalExtension();
             $new_filename = $validasi['nama_tim']. ".".$ext;
-            $request->foto->storeAs('public/images', $new_filename);
+            $request->logo->storeAs('public/images', $new_filename);
     
             $tim->logo = $new_filename;
             $tim->save();

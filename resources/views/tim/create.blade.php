@@ -10,7 +10,9 @@
                 <div class="card-body">
                     <h4 class="card-title">Tambah Tim</h4>
                     <p class="card-description"> Masukkan data berikut untuk tambah tim </p>
-                    <form class="forms-sample">
+                    <form class="forms-sample" action="{{ route('tim.store')}}" method="POST" 
+                    enctype="multipart/form-data">
+                    @csrf
                         <div class="form-group">
                             <label for="nama_tim">Nama Tim</label>
                             <input type="text" class="form-control" name="nama_tim">
@@ -37,9 +39,6 @@
                                     <option value="{{ $item['id'] }}"> {{ $item['username'] }}</option>
                                 @endforeach
                             </select>
-                            {{-- @error('anggota_id')
-                                <span class="text-danger"> {{ $message }}</span>
-                            @enderror --}}
                         </div>
                         <div class="form-group">
                           <label for="logo">Logo</label>
