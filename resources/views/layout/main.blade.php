@@ -67,8 +67,13 @@
                 <a class="dropdown-item" href="#">
                   <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
+                <form method="POST" action="{{ route('logout') }}">
+                  @csrf
+                  <button type="submit">Logout</button>
+                </form>
+                {{-- <a class="dropdown-item" href="{{ route('logout') }}" @method('POST')>
+                  @csrf
+                  <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a> --}}
               </div>
             </li>
             <li class="nav-item d-none d-lg-block full-screen-link">
@@ -200,7 +205,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="dashboard">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>

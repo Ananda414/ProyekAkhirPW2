@@ -13,10 +13,10 @@ class TImController extends Controller
      */
     public function index()
     {
-        $data = Tim::all();
+        $tim = Tim::all();
 
         $anggota = Anggota::orderBy('username', 'ASC')->get();
-        return view('tim/create')->with('anggota', $anggota);
+        return view('tim/create', compact('tim'))->with('anggota', $anggota);
     }
 
     /**
@@ -36,12 +36,11 @@ class TImController extends Controller
             'nama_tim' => 'required',
             'deskripsi_tim' => 'nullable',
             'tanggal_berdiri' => 'required',
-            'anggota_id' => 'nullable',
+            'anggota_id' => 'required',
             'logo' => 'required',
             'kontak_tim' => 'required'
         ]);
         // dd($validasi);
-
             $tim = new Tim();
             $tim->nama_tim = $validasi['nama_tim'];
             $tim->deskripsi_tim = $validasi['deskripsi_tim'];

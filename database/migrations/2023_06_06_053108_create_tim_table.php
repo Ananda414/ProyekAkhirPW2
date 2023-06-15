@@ -15,10 +15,10 @@ return new class extends Migration
             $table->uuid('id');
             $table->primary('id');
             $table->string('nama_tim');
-            $table->string('deskripsi_tim');
+            $table->string('deskripsi_tim')->nullable();
             $table->string('tanggal_berdiri');
             $table->string('anggota_id');
-            $table->foreign('anggota_id')->references('id')->on('anggota')->cascadeOnDelete()->cascadeOnDelete()->cascadeOnUpdate()->cascadeOnUpdate();
+            $table->foreign('anggota_id')->references('id')->on('anggota')->cascadeOnDelete()->cascadeOnDelete();
             $table->char('logo');
             $table->string('kontak_tim');
             $table->timestamps();

@@ -34,6 +34,9 @@
                                     <td> {{ $item->deskripsi_tim }} </td>
                                     <td> {{ $item->tanggal_berdiri }} </td>
                                     <td> {{ $item->anggota->username }} </td>
+                                    {{-- @foreach (explode(',', $item->anggota_id) as $idAnggota)
+                                        <td> {{ $idAnggota }} </td>
+                                    @endforeach --}}
                                     <td><img src= "{{ asset ('storage/images/' .$item->logo) }}" /> </td>
                                     <td> {{ $item->kontak_tim }} </td>
                                     <td> {{ $item->created_at }} </td>

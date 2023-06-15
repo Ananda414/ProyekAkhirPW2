@@ -13,8 +13,8 @@ class IndexTimController extends Controller
      */
     public function index()
     {
-        $data = Tim::all();
-        return view('tim.index')->with('tims', $data);
+        $tim = Tim::all();
+        return view('tim.index', compact('tim'))->with('tims', $tim);
     }
 
     /**
