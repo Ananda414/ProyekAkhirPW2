@@ -70,17 +70,44 @@ class AnggotaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Anggota $anggota)
     {
-        //
+        return view('anggota.edit')->with('anggota', $anggota);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Anggota $anggota)
     {
-        //
+        $validasi = $request->validate([
+            'nama_depan' => 'required',
+            'nama_belakang' => 'required',
+            'jenis_kelamin' => 'required',
+            'tanggal_lahir' => 'required',
+            'kota_lahir' => 'required',
+            'email' => 'email',
+            'status' => 'required',
+            'foto' => 'required'
+        ]);
+            $anggota = new Anggota();
+            $anggota->nama_depan = $validasi['nama_depan'];
+            $anggota->nama_belakang = $validasi['nama_belakang'];
+            $anggota->username = $anggota->username;
+            $anggota->email = $validasi['email'];
+            $anggota->jenis_kelamin = $validasi['jenis_kelamin'];
+            $anggota->tanggal_lahir = $validasi['tanggal_lahir'];
+            $anggota->kota_lahir = $validasi['kota_lahir'];
+            $anggota->status = $validasi['status'];
+            $ext = $request->foto->getClientOriginalExtension();
+            $new_filename = $validasi['nama_depan']. ".".$ext;
+            $request->foto->storeAs('public/images', $new_filename);
+    
+            
+            $anggota->foto = $new_filename;
+            $anggota->save();
+            return redirect()->to('anggota.index')->with('success', "Data Anggota". $validasi['nama_depan']. " berhasil disimpan");
+    
     }
 
     /**
