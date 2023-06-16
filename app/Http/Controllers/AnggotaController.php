@@ -13,7 +13,7 @@ class AnggotaController extends Controller
     public function index()
     {
         $data = Anggota::all();
-        return view('anggota/create');
+        return view('anggotas/create');
     }
 
     /**
@@ -72,7 +72,7 @@ class AnggotaController extends Controller
      */
     public function edit(Anggota $anggota)
     {
-        return view('anggota.edit')->with('anggota', $anggota);
+        return view('anggotas.edit')->with('anggota', $anggota);
     }
 
     /**
@@ -90,7 +90,6 @@ class AnggotaController extends Controller
             'status' => 'required',
             'foto' => 'required'
         ]);
-            $anggota = new Anggota();
             $anggota->nama_depan = $validasi['nama_depan'];
             $anggota->nama_belakang = $validasi['nama_belakang'];
             $anggota->username = $anggota->username;
@@ -106,7 +105,7 @@ class AnggotaController extends Controller
             
             $anggota->foto = $new_filename;
             $anggota->save();
-            return redirect()->to('anggota.index')->with('success', "Data Anggota". $validasi['nama_depan']. " berhasil disimpan");
+            return redirect()->to('/listanggota')->with('success', "Data Anggota". $validasi['nama_depan']. " berhasil disimpan");
     
     }
 
@@ -116,7 +115,7 @@ class AnggotaController extends Controller
     public function destroy(Anggota $anggota)
     {
         $anggota->delete();
-        return redirect()->route('anggota.index')->with('success', 'Data berhasil dihapus');
+        return redirect()->route('anggotas.index')->with('success', 'Data berhasil dihapus');
         // return response("data berhasil dihapus", 200);
     }
 

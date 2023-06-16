@@ -13,7 +13,7 @@ class IndexAnggotaController extends Controller
     public function index()
     {
         $data = Anggota::all();
-        return view('anggota.index')->with('anggotas', $data);
+        return view('anggotas.index')->with('anggotas', $data);
     }
 
     /**

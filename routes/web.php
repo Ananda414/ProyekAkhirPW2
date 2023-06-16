@@ -57,7 +57,7 @@ Route::get('listanggota', [IndexAnggotaController::class, 'index'])->name('lista
 Route::get('listim', [IndexTimController::class, 'index'])->name('listim');
 Route::get('listproyek', [IndexProyekController::class, 'index'])->name('listproyek');
 
-Route::resource('anggota', AnggotaController::class);
+Route::resource('anggotas', AnggotaController::class);
 Route::resource('tim', TImController::class);
 Route::resource('proyek', ProyekController::class);
 Route::resource('listanggota', IndexAnggotaController::class);

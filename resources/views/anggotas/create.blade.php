@@ -10,7 +10,7 @@
                   <div class="card-body">
                     
                     <h4 class="card-title">Tambah Anggota</h4>
-                    <form class="forms-sample" action="{{ route('anggota.store')}}" method="POST"
+                    <form class="forms-sample" action="{{ route('anggotas.store')}}" method="POST"
                     enctype="multipart/form-data">
                       @csrf
                       <p class="card-description"> Masukkan data berikut untuk menambah anggota </p>
