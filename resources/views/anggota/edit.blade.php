@@ -76,7 +76,7 @@
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Username</label>
                             <div class="col-sm-9">
-                              <input value="{{$anggota->username}}" disabled>
+                              <input value="{{$anggota->username}}" type="text" class="form-control" name="username">
                               @error('username')
                                 <span class="text-danger"> {{ $message }}</span>
                               @enderror

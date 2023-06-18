@@ -11,7 +11,7 @@
     Tim : {{ count($tim) }} <br>
     Proyek : {{ count($proyek) }} <br>
 
-    {{-- <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
@@ -89,8 +89,8 @@
     },
     xAxis: {
         categories: [
-            @foreach ($mahasiswaprodi as $item )
-                '{{ $item->nama_prodi }}',
+            @foreach ($anggotatim as $item )
+                '{{ $item->username }}',
             @endforeach
         ],
         crosshair: true
@@ -116,14 +116,14 @@
         }
     },
     series: [{
-        series: 'Mahasiswa',
-        data: [@foreach ($mahasiswaprodi as $item )
+        series: 'Anggota',
+        data: [@foreach ($anggotatim as $item )
             {{ $item->jumlah }},
         @endforeach
     ]
     }]
 });
-</script> --}}
+</script>
 
 </div>
 

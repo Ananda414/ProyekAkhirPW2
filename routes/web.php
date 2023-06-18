@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\Auth\LoginRegisterController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IndexAnggotaController;
 use App\Http\Controllers\IndexProyekController;
 use App\Http\Controllers\IndexTimController;
@@ -52,7 +53,8 @@ Route::get('listproyek', [IndexProyekController::class, 'index'])->name('listpro
 Route::get('/anggota/{anggota}', [AnggotaController::class, 'edit']);
 Route::get('/anggota/{anggota}/edit', [AnggotaController::class, 'edit']);
 Route::put('/anggota/{anggota}', [AnggotaController::class, 'update']);
-Route::put('/anggota/{anggota}', [AnggotaController::class, 'update']);
+Route::delete('/anggota/{anggota}', [AnggotaController::class, 'destroy']);
+Route::delete('/listanggota/{listanggota}', [IndexAnggotaController::class, 'destroy']);
 
 Route::resource('anggota', AnggotaController::class);
 Route::resource('tim', TImController::class);

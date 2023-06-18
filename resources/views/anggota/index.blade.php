@@ -111,7 +111,7 @@
                   showCancelButton: false,
                   confirmButtonText: 'Yes'
               }).then((result) => {
-                window.location='/anggota'
+                window.location='/listanggota'
               });
             }
           });
@@ -148,7 +148,7 @@ $('.delete-form').on('submit', function(e) {
                   showCancelButton: false,
                   confirmButtonText: 'Yes'
               }).then((result) => {
-                window.location='/anggota'
+                window.location='/listanggota'
               });
             }
           });

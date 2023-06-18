@@ -11,14 +11,14 @@ use Illuminate\Support\Facades\DB;
 class DashboardController extends Controller
 {
     public function index() {
-        // $data['anggota'] = Anggota::all();
-        // $data['tim'] = Tim::all();
-        // $data['proyek'] = Proyek::all();
-        // $data['anggota_prodi'] = DB::select('SELECT p.nama_prodi, COUNT(*) as jumlah
-        // FROM mahasiswa m
-        // JOIN prodi p ON m.prodi_id = p.id
-        // GROUP BY p.nama_prodi');
-        // dd($data['mahasiswaprodi']);
+        $data['anggota'] = Anggota::all();
+        $data['tim'] = Tim::all();
+        $data['proyek'] = Proyek::all();
+        $data['anggotatim'] = DB::select('SELECT a.username, COUNT(*) as jumlah
+        FROM tim t
+        JOIN anggota a ON t.anggota_id = a.id
+        GROUP BY a.username');
+        dd($data['anggotatim']);
         // return view('dashboard', $data);
     }
 }

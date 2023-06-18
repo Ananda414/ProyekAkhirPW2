@@ -78,19 +78,21 @@ class AnggotaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Anggota $anggota)
+    public function update(Request $request, String $id)
     {
         $validasi = $request->validate([
             'nama_depan' => 'required',
             'nama_belakang' => 'required',
             'jenis_kelamin' => 'required',
+            'username' => 'required',
             'tanggal_lahir' => 'required',
             'kota_lahir' => 'required',
             'email' => 'email',
             'status' => 'required',
             'foto' => 'required'
         ]);
-            $anggota->username = $anggota->username;
+            $anggota = Anggota::find('$id');
+            $anggota->username = $validasi['username'];
             $anggota->nama_depan = $validasi['nama_depan'];
             $anggota->nama_belakang = $validasi['nama_belakang'];
             $anggota->email = $validasi['email'];
@@ -105,7 +107,7 @@ class AnggotaController extends Controller
             
             $anggota->foto = $new_filename;
             $anggota->save();
-            return redirect()->to('/listanggota')->with('success', "Data Anggota". $validasi['nama_depan']. " berhasil disimpan");
+            return redirect()->to('/listanggota')->with('success', "Data Anggota". $validasi['nama_depan']. " berhasil diupdate");
     
     }
 
@@ -115,8 +117,7 @@ class AnggotaController extends Controller
     public function destroy(Anggota $anggota)
     {
         $anggota->delete();
-        return redirect()->route('anggotas.index')->with('success', 'Data berhasil dihapus');
-        // return response("data berhasil dihapus", 200);
+        return response("data berhasil dihapus", 200);
     }
 
     public function multiDelete(Request $request) {
