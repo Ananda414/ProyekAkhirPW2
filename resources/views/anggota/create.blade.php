@@ -10,7 +10,7 @@
                   <div class="card-body">
                     
                     <h4 class="card-title">Tambah Anggota</h4>
-                    <form class="forms-sample" action="{{ route('anggotas.store')}}" method="POST"
+                    <form class="forms-sample" action="{{ route('anggota.store')}}" method="POST"
                     enctype="multipart/form-data">
                       @csrf
                       <p class="card-description"> Masukkan data berikut untuk menambah anggota </p>
@@ -57,7 +57,8 @@
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
                             <div class="col-sm-9">
-                              <input type="date" class="form-control" name="tanggal_lahir">
+                              <input value="{{ old('tanggal_lahir') }}" type="date" class="form-control" 
+                              name="tanggal_lahir">
                               @error('tanggal_lahir')
                                 <span class="text-danger"> {{ $message }}</span>
                               @enderror
@@ -70,7 +71,8 @@
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Username</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" name="username">
+                              <input value="{{ old('username') }}" type="text" class="form-control" 
+                              name="username">
                               @error('username')
                                 <span class="text-danger"> {{ $message }}</span>
                               @enderror
@@ -81,7 +83,8 @@
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Email</label>
                             <div class="col-sm-9">
-                              <input type="email" class="form-control" name="email">
+                              <input value="{{ old('email') }}" type="email" class="form-control" 
+                              name="email">
                               @error('email')
                                 <span class="text-danger"> {{ $message }}</span>
                               @enderror
@@ -94,7 +97,8 @@
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Kota Lahir</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" name="kota_lahir">
+                              <input value="{{ old('kota_lahir') }}" type="text" class="form-control" 
+                              name="kota_lahir">
                               @error('kota_lahir')
                                 <span class="text-danger"> {{ $message }}</span>
                               @enderror
@@ -121,7 +125,7 @@
                       </div>
                       <div class="form-group">
                         <label for="foto">Foto</label>
-                        <input value="foto" type="file" class="form-control" name="foto"
+                        <input value="{{'$anggota->foto' }}" type="file" class="form-control" name="foto"
                             placeholder="Foto">
                         @error('foto')
                             <span class="text-danger"> {{ $message }}</span>

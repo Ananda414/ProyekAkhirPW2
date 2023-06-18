@@ -11,13 +11,12 @@ class Anggota extends Model
     use HasFactory, HasUuids;
 
     protected $table = 'anggota';
-
     protected $fillable = [
+        'username',
         'nama_depan' ,
         'nama_belakang' ,
         'jenis_kelamin' ,
         'tanggal_lahir' ,
-        'username' ,
         'email' ,
         'kota_lahir' ,
         'status' ,

@@ -1,19 +1,12 @@
 <?php
 
 use App\Http\Controllers\AnggotaController;
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\LoginRegisterController;
-use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\IndexAnggotaController;
 use App\Http\Controllers\IndexProyekController;
 use App\Http\Controllers\IndexTimController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProyekController;
 use App\Http\Controllers\TImController;
-use GuzzleHttp\Promise\Create;
-use Illuminate\Auth\Events\Login;
-use Illuminate\Auth\Events\Logout;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,8 +49,12 @@ Route::post('anggota-multi-delete', [AnggotaController::class, 'multiDelete']) -
 Route::get('listanggota', [IndexAnggotaController::class, 'index'])->name('listanggota');
 Route::get('listim', [IndexTimController::class, 'index'])->name('listim');
 Route::get('listproyek', [IndexProyekController::class, 'index'])->name('listproyek');
+Route::get('/anggota/{anggota}', [AnggotaController::class, 'edit']);
+Route::get('/anggota/{anggota}/edit', [AnggotaController::class, 'edit']);
+Route::put('/anggota/{anggota}', [AnggotaController::class, 'update']);
+Route::put('/anggota/{anggota}', [AnggotaController::class, 'update']);
 
-Route::resource('anggotas', AnggotaController::class);
+Route::resource('anggota', AnggotaController::class);
 Route::resource('tim', TImController::class);
 Route::resource('proyek', ProyekController::class);
 Route::resource('listanggota', IndexAnggotaController::class);

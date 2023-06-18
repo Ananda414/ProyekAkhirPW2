@@ -4,19 +4,27 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Purple Admin</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css') }}">
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}" />
+
+    <script>
+      // In your Javascript (external .js resource or <script> tag)
+      $(document).ready(function() {
+          $('.js-example-basic-single').select2();
+      });
+  </script>
   </head>
   <body>
     <div class="container-scroller">
@@ -218,9 +226,9 @@
               </a>
               <div class="collapse" id="tambah">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item mdi mdi-book-multiple-variant"> <a class="nav-link" href="proyek">Proyek</a></li>
-                  <li class="nav-item mdi mdi-account-multiple"> <a class="nav-link" href="tim">Tim</a></li>
-                  <li class="nav-item mdi mdi-account"> <a class="nav-link" href="anggota">Anggota</a></li>
+                  <li class="nav-item mdi mdi-book-multiple-variant"> <a class="nav-link" href="{{ url('proyek') }}">Proyek</a></li>
+                  <li class="nav-item mdi mdi-account-multiple"> <a class="nav-link" href="{{ url('tim') }}">Tim</a></li>
+                  <li class="nav-item mdi mdi-account"> <a class="nav-link" href="{{ url('anggota') }}">Anggota</a></li>
                 </ul>
               </div>
             </li>
@@ -232,9 +240,9 @@
               </a>
               <div class="collapse" id="list">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item mdi mdi-book-multiple-variant"> <a class="nav-link" href="listproyek">Proyek</a></li>
-                  <li class="nav-item mdi mdi-account-multiple"> <a class="nav-link" href="listim">Tim</a></li>
-                  <li class="nav-item mdi mdi-account"> <a class="nav-link" href="listanggota">Anggota</a></li>
+                  <li class="nav-item mdi mdi-book-multiple-variant"> <a class="nav-link" href="{{ url('listproyek') }}">Proyek</a></li>
+                  <li class="nav-item mdi mdi-account-multiple"> <a class="nav-link" href="{{ url('listim') }}">Tim</a></li>
+                  <li class="nav-item mdi mdi-account"> <a class="nav-link" href="{{ url('listanggota') }}">Anggota</a></li>
                 </ul>
               </div>
             </li>

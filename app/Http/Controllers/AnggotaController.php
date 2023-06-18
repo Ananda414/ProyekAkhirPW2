@@ -13,7 +13,7 @@ class AnggotaController extends Controller
     public function index()
     {
         $data = Anggota::all();
-        return view('anggotas/create');
+        return view('anggota/create');
     }
 
     /**
@@ -62,7 +62,7 @@ class AnggotaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Anggota $anggota)
     {
         //
     }
@@ -72,7 +72,7 @@ class AnggotaController extends Controller
      */
     public function edit(Anggota $anggota)
     {
-        return view('anggotas.edit')->with('anggota', $anggota);
+        return view('anggota.edit')->with('anggota', $anggota);
     }
 
     /**
@@ -90,9 +90,9 @@ class AnggotaController extends Controller
             'status' => 'required',
             'foto' => 'required'
         ]);
+            $anggota->username = $anggota->username;
             $anggota->nama_depan = $validasi['nama_depan'];
             $anggota->nama_belakang = $validasi['nama_belakang'];
-            $anggota->username = $anggota->username;
             $anggota->email = $validasi['email'];
             $anggota->jenis_kelamin = $validasi['jenis_kelamin'];
             $anggota->tanggal_lahir = $validasi['tanggal_lahir'];

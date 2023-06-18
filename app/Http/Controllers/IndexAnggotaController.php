@@ -13,7 +13,7 @@ class IndexAnggotaController extends Controller
     public function index()
     {
         $data = Anggota::all();
-        return view('anggotas.index')->with('anggotas', $data);
+        return view('anggota.index')->with('anggotas', $data);
     }
 
     /**
@@ -63,7 +63,6 @@ class IndexAnggotaController extends Controller
             'status' => 'required',
             'foto' => 'required'
         ]);
-            $anggota = new Anggota();
             $anggota->nama_depan = $validasi['nama_depan'];
             $anggota->nama_belakang = $validasi['nama_belakang'];
             $anggota->username = $anggota->username;
@@ -79,7 +78,7 @@ class IndexAnggotaController extends Controller
             
             $anggota->foto = $new_filename;
             $anggota->save();
-            return redirect()->to('anggota.index')->with('success', "Data Anggota". $validasi['nama_depan']. " berhasil disimpan");
+            return redirect()->to('/listanggota')->with('success', "Data Anggota". $validasi['nama_depan']. " berhasil disimpan");
 
     }
 

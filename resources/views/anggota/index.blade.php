@@ -49,10 +49,10 @@
                                     <td> {{ $item->created_at }} </td>
                                     <td>
                                         <div class="d-flex justify-content-between">
-                                          <a href="{{ route('anggotas.edit', $item->id)}}">
+                                          <a href="{{ route('anggota.edit', $item->id)}}">
                                             <button class="btn btn-success btn-sm">Edit</button></a>
                                           <form method="POST" class="delete-form" data-route="{{ route
-                                          ('anggotas.destroy', $item->id)}}">
+                                          ('anggota.destroy', $item->id)}}">
                                               @method('delete')
                                               @csrf
                                               <button type="submit" class="btn btn-danger btn-sm">Delete</button>
