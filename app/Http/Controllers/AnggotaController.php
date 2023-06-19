@@ -91,7 +91,7 @@ class AnggotaController extends Controller
             'status' => 'required',
             'foto' => 'required'
         ]);
-            $anggota = Anggota::find('$id');
+            $anggota = Anggota::find($id);
             $anggota->username = $validasi['username'];
             $anggota->nama_depan = $validasi['nama_depan'];
             $anggota->nama_belakang = $validasi['nama_belakang'];

@@ -18,7 +18,7 @@ class DashboardController extends Controller
         FROM tim t
         JOIN anggota a ON t.anggota_id = a.id
         GROUP BY a.username');
-        dd($data['anggotatim']);
-        // return view('dashboard', $data);
+        // dd($data['anggotatim']);
+        return view('auth.dashboard', $data);
     }
 }
