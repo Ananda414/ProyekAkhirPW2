@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id');
             $table->primary('id');
             $table->string('nama_depan');
-            $table->string('nama_belakang');
+            $table->string('nama_belakang')->nullable();
             $table->string('jenis_kelamin');
             $table->string('tanggal_lahir');
             $table->string('username');

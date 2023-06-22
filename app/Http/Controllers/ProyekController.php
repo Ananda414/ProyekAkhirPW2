@@ -32,6 +32,8 @@ class ProyekController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Proyek::class);
+
         $validasi = $request->validate([
             'nama_proyek' => 'required',
             'deskripsi_proyek' => 'nullable',
@@ -62,9 +64,10 @@ class ProyekController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Proyek $proyek)
     {
-        //
+        $tim = Tim::orderBy('nama_tim', 'ASC')->get();
+        return view('proyek.edit')->with('proyek', $proyek)->with('tim', $tim);
     }
 
     /**
@@ -72,14 +75,36 @@ class ProyekController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->authorize('update', Proyek::class);
+
+        $validasi = $request->validate([
+            'nama_proyek' => 'required',
+            'deskripsi_proyek' => 'nullable',
+            'deadline' => 'required',
+            'budget' => 'nullable',
+            'tim_id' => 'required'
+        ]);
+        // dd($validasi);
+
+            $proyek = Proyek::find($id);
+            $proyek->nama_proyek = $validasi['nama_proyek'];
+            $proyek->deskripsi_proyek = $validasi['deskripsi_proyek'];
+            $proyek->deadline = $validasi['deadline'];
+            $proyek->budget = $validasi['budget'];
+            $proyek->tim_id = $validasi['tim_id'];
+            $proyek->save();
+            return redirect()->to('/listproyek')->with('success', "Data Proyek". $validasi['nama_proyek']. " berhasil disimpan");
+  
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Proyek $proyek)
     {
-        //
+        $this->authorize('delete', Proyek::class);
+
+        $proyek->delete();
+        return response("data berhasil dihapus", 200);
     }
 }

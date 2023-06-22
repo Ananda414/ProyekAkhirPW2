@@ -31,7 +31,7 @@ class AnggotaController extends Controller
     {
         $validasi = $request->validate([
             'nama_depan' => 'required',
-            'nama_belakang' => 'required',
+            'nama_belakang' => 'nullable',
             'jenis_kelamin' => 'required',
             'tanggal_lahir' => 'required',
             'username' => 'required',
@@ -82,7 +82,7 @@ class AnggotaController extends Controller
     {
         $validasi = $request->validate([
             'nama_depan' => 'required',
-            'nama_belakang' => 'required',
+            'nama_belakang' => 'nullable',
             'jenis_kelamin' => 'required',
             'username' => 'required',
             'tanggal_lahir' => 'required',

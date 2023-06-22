@@ -14,10 +14,10 @@ class DashboardController extends Controller
         $data['anggota'] = Anggota::all();
         $data['tim'] = Tim::all();
         $data['proyek'] = Proyek::all();
-        $data['anggotatim'] = DB::select('SELECT a.username, COUNT(*) as jumlah
-        FROM tim t
-        JOIN anggota a ON t.anggota_id = a.id
-        GROUP BY a.username');
+        $data['proyektim'] = DB::select('SELECT t.nama_tim, COUNT(*) as jumlahProyek
+        FROM proyek p
+        JOIN tim t ON p.tim_id = t.id
+        GROUP BY t.nama_tim');
         // dd($data['anggotatim']);
         return view('auth.dashboard', $data);
     }

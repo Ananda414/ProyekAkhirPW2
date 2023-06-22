@@ -31,9 +31,6 @@
                             <label class="col-sm-3 col-form-label">Nama Belakang</label>
                             <div class="col-sm-9">
                               <input value="{{ old('nama_belakang') }}" type="text" class="form-control" name="nama_belakang">
-                              @error('nama_belakang')
-                                <span class="text-danger"> {{ $message }}</span>
-                              @enderror
                             </div>
                           </div>
                         </div>
@@ -132,7 +129,7 @@
                         @enderror
                     </div>
                         <button type="submit" class="btn btn-primary me-2">Submit</button>
-                        <a href="../../index.html" class="btn btn-light">Cancel
+                        <a href="{{ route('dashboard') }}" class="btn btn-light">Cancel
                     </form>
                   </div>
                 </div>

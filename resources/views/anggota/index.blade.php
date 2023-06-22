@@ -14,15 +14,10 @@
                     </div>
                 @endif
                 <h4 class="card-title">Daftar Anggota</h4>
-                @if (count($anggotas) != 0)
-                    <button class="btn btn-danger d-flex justify-content-end flex-column" id="multi-delete" data-route="{{ route('anggota-multi-delete')
-                    }}">Delete All Selected</button>
-                @endif
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th><input type="checkbox" class="check-all"></th>
                                 <th>Nama</th>
                                 <th>Jenis Kelamin</th>
                                 <th>Tanggal Lahir</th>
@@ -37,7 +32,6 @@
                         <tbody>
                             @foreach ($anggotas as $item)
                                 <tr>
-                                    <td><input type="checkbox" class="check" value="{{ $item->id }}"></td>
                                     <td> {{ $item->nama_depan }} {{ $item->nama_belakang }} </td>
                                     <td> {{ $item->jenis_kelamin }} </td>
                                     <td> {{ $item->tanggal_lahir }} </td>
@@ -76,7 +70,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
 
-    $("#posts-table").TableCheckAll();
+    // $("#posts-table").TableCheckAll();
 
     $('#multi-delete').on('click', function() {
       var button = $(this);

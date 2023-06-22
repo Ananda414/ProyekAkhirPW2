@@ -15,9 +15,9 @@ return new class extends Migration
             $table->uuid('id');
             $table->primary('id');
             $table->string('nama_proyek');
-            $table->string('deskripsi_proyek');
+            $table->string('deskripsi_proyek')->nullable();
             $table->string('deadline');
-            $table->string('budget');
+            $table->string('budget')->nullable();
             $table->uuid('tim_id');
             $table->foreign('tim_id')->references('id')->on('tim');
             $table->timestamps();

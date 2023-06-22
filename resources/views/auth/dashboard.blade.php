@@ -11,7 +11,7 @@
     Tim : {{ count($tim) }} <br>
     Proyek : {{ count($proyek) }} <br>
 
-    <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
@@ -19,11 +19,7 @@
 <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">
-        A basic column chart comparing emissions by pollutant.
-        Oil and gas extraction has the overall highest amount of
-        emissions, followed by manufacturing industries and mining.
-        The chart is making use of the axis crosshair feature, to highlight
-        years as they are hovered over.
+        Grafik ini menunjukkan perbandingan antar tim dengan jumlah proyek yang dimiliki.
     </p>
 </figure>
 
@@ -82,15 +78,15 @@
         type: 'column'
     },
     title: {
-        text: 'Monthly Average Rainfall'
+        text: 'Perbandingan Tim'
     },
     subtitle: {
-        text: 'Source: WorldClimate.com'
+        text: 'Sumber: Sub Menu List'
     },
     xAxis: {
         categories: [
-            @foreach ($anggotatim as $item )
-                '{{ $item->username }}',
+            @foreach ($proyektim as $item )
+                '{{ $item->nama_tim }}',
             @endforeach
         ],
         crosshair: true
@@ -98,7 +94,7 @@
     yAxis: {
         min: 0,
         title: {
-            text: 'Rainfall (mm)'
+            text: 'Proyek'
         }
     },
     tooltip: {
@@ -116,9 +112,9 @@
         }
     },
     series: [{
-        series: 'Anggota',
-        data: [@foreach ($anggotatim as $item )
-            {{ $item->jumlah }},
+        series: 'tim',
+        data: [@foreach ($proyektim as $item )
+            {{ $item->jumlahProyek }},
         @endforeach
     ]
     }]

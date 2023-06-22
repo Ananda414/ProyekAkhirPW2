@@ -33,9 +33,6 @@
                             <label class="col-sm-3 col-form-label">Nama Belakang</label>
                             <div class="col-sm-9">
                               <input value="{{$anggota -> nama_belakang}}" type="text" class="form-control" name="nama_belakang">
-                              @error('nama_belakang')
-                                <span class="text-danger"> {{ $message }}</span>
-                              @enderror
                             </div>
                           </div>
                         </div>
