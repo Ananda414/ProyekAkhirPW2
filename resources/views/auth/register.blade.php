@@ -25,18 +25,15 @@
           <div class="row flex-grow">
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left p-5">
-                <div class="brand-logo">
-                  <img src="../../assets/images/logo.svg">
-                </div>
                 <h4>New here?</h4>
                 <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
                 <form class="pt-3" method="POST" action="{{ route('store') }}">
                   @csrf
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-lg @error('username') is-invalid @enderror" id="username" name="username" placeholder="Username"
-                    value="{{ old('username') }}">
-                    @if ($errors->has('username'))
-                          <span class="text-danger">{{ $errors->first('username') }}</span>
+                    <input type="text" class="form-control form-control-lg @error('name') is-invalid @enderror" id="name" name="name" placeholder="Username"
+                    value="{{ old('name') }}">
+                    @if ($errors->has('name'))
+                          <span class="text-danger">{{ $errors->first('name') }}</span>
                     @endif
                   </div>
                   <div class="form-group">

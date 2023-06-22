@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginRegisterController extends Controller
 {
+    protected $redirectTo = '/dashboard';
+
     public function __construct()
     {
         $this->middleware('guest')->except([
@@ -25,13 +27,13 @@ class LoginRegisterController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'username' => 'required|string|max:250',
+            'name' => 'required|string|max:250',
             'email' => 'required|email|max:250|unique:users',
             'password' => 'required|min:8'
         ]);
 
         User::create([
-            'username' => $request->username,
+            'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
@@ -86,7 +88,7 @@ class LoginRegisterController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('login')->withSuccess('You have logged out successfully!');;
+        return redirect()->route('/login')->withSuccess('You have logged out successfully!');;
     }    
 
 }

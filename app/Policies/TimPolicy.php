@@ -31,7 +31,8 @@ class TimPolicy
     {
         return in_array($user->email, [
             'ananda1@gmail.com',
-            'ananda2@gmail.com'
+            'ananda2@gmail.com',
+            'ananda9@gmail.com'
         ]);
     }
 
@@ -42,7 +43,8 @@ class TimPolicy
     {
         return in_array($user->email, [
             'ananda1@gmail.com',
-            'ananda2@gmail.com'
+            'ananda2@gmail.com',
+            'ananda9@gmail.com'
         ]);
     }
 
@@ -53,7 +55,8 @@ class TimPolicy
     {
         return in_array($user->email, [
             'ananda1@gmail.com',
-            'ananda2@gmail.com'
+            'ananda2@gmail.com',
+            'ananda9@gmail.com'
         ]);
     }
 

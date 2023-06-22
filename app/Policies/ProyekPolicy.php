@@ -30,7 +30,8 @@ class ProyekPolicy
     public function create(User $user)
     {
         return in_array($user->email, [
-            'ananda1@gmail.com'
+            'ananda1@gmail.com',
+            'ananda9@gmail.com'
         ]);
     }
 
@@ -40,7 +41,8 @@ class ProyekPolicy
     public function update(User $user)
     {
         return in_array($user->email, [
-            'ananda1@gmail.com'
+            'ananda1@gmail.com',
+            'ananda9@gmail.com'
         ]);
     }
 
@@ -50,7 +52,8 @@ class ProyekPolicy
     public function delete(User $user)
     {
         return in_array($user->email, [
-            'ananda1@gmail.com'
+            'ananda1@gmail.com',
+            'ananda9@gmail.com'
         ]);
     }
 
