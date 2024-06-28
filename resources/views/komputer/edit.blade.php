@@ -73,7 +73,7 @@
                         @enderror
                         @if ($komputer->foto)
                             <div class="mt-2">
-                                <img src="{{ asset('storage/images/' . $komputer->foto) }}" alt="Current photo" width="100">
+                                <img src="../../storage/images/ . $komputer->foto" alt="Current photo" width="100">
                                 <p>Current photo: {{ $komputer->foto }}</p>
                             </div>
                         @endif

@@ -94,7 +94,7 @@
                     <p>Terpakai: ${item.terpakai}</p>
                     <p>Sisa: ${item.terpakai === null || item.terpakai === '' ? '-' : parseInt(item.jumlah) - parseInt(item.terpakai)}</p>
                     <p>Terakhir Dipakai: ${item.terakhir_dipakai ? new Date(item.terakhir_dipakai).toLocaleString('id-ID') : '-'}</p>
-                    <p>Foto: <img class="zoomable" src="{{ asset('storage/images/') }}/${item.foto}" style="max-width: 100px; max-height: 100px;" /></p>
+                    <p>Foto: <img class="zoomable" src="../../storage/images/${item.foto}" style="max-width: 100px; max-height: 100px;" /></p>
                     <p>Dibuat tanggal: ${new Date(item.created_at).toLocaleString('id-ID')}</p>
                     <p>Terakhir Diperbarui: ${new Date(item.updated_at).toLocaleString('id-ID')}</p>
                     <p class="zoom-message" style="display:none;">Click again the picture to zoom out</p>

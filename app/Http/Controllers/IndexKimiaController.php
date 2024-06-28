@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kimia;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
+use App\Jobs\GenerateKimiaPDF;
 
 class IndexKimiaController extends Controller
 {
@@ -28,10 +29,12 @@ class IndexKimiaController extends Controller
     public function downloadPDF()
     {
         $kimias = Kimia::all();
-
         $pdf = PDF::loadView('kimia.pdf', compact('kimias'));
-
-        return $pdf->download('kimias.pdf');
+        $tmpFile = tempnam(sys_get_temp_dir(), 'kimias_pdf_');
+        $pdf->save($tmpFile);
+        return response()->download($tmpFile, 'kimias.pdf', [
+            'Content-Type' => 'application/pdf',
+        ]);
     }
 
     /**

@@ -85,7 +85,7 @@
                   @enderror
                   @if ($kimia->foto)
                       <div class="mt-2">
-                        <img src="{{ asset('storage/images/' . $kimia->foto) }}" alt="Current photo" width="100">
+                        <img src="../../storage/images/' . $kimia->foto" alt="Current photo" width="100">
                         <p>Foto saat ini: {{ $kimia->foto }}</p>
                       </div>
                   @endif
