@@ -336,13 +336,13 @@ class ComposerStaticInitda3d554a09034a7e886771c7047ca233
         ),
         'Spatie\\LaravelIgnition\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
-            1 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
+            0 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
+            1 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
         ),
         'Spatie\\Ignition\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition',
-            1 => __DIR__ . '/..' . '/spatie/ignition/src',
+            0 => __DIR__ . '/..' . '/spatie/ignition/src',
+            1 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition',
         ),
         'Spatie\\FlareClient\\' => 
         array (
@@ -5659,6 +5659,7 @@ class ComposerStaticInitda3d554a09034a7e886771c7047ca233
         'Spatie\\ErrorSolutions\\SolutionProviders\\Laravel\\ViewNotFoundSolutionProvider' => __DIR__ . '/..' . '/spatie/error-solutions/src/SolutionProviders/Laravel/ViewNotFoundSolutionProvider.php',
         'Spatie\\ErrorSolutions\\SolutionProviders\\MergeConflictSolutionProvider' => __DIR__ . '/..' . '/spatie/error-solutions/src/SolutionProviders/MergeConflictSolutionProvider.php',
         'Spatie\\ErrorSolutions\\SolutionProviders\\UndefinedPropertySolutionProvider' => __DIR__ . '/..' . '/spatie/error-solutions/src/SolutionProviders/UndefinedPropertySolutionProvider.php',
+        'Spatie\\ErrorSolutions\\Solutions\\Concerns\\IsProvidedByFlare' => __DIR__ . '/..' . '/spatie/error-solutions/src/Solutions/Concerns/IsProvidedByFlare.php',
         'Spatie\\ErrorSolutions\\Solutions\\Laravel\\GenerateAppKeySolution' => __DIR__ . '/..' . '/spatie/error-solutions/src/Solutions/Laravel/GenerateAppKeySolution.php',
         'Spatie\\ErrorSolutions\\Solutions\\Laravel\\LivewireDiscoverSolution' => __DIR__ . '/..' . '/spatie/error-solutions/src/Solutions/Laravel/LivewireDiscoverSolution.php',
         'Spatie\\ErrorSolutions\\Solutions\\Laravel\\MakeViewVariableOptionalSolution' => __DIR__ . '/..' . '/spatie/error-solutions/src/Solutions/Laravel/MakeViewVariableOptionalSolution.php',

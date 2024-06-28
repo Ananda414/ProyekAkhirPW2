@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Kimia;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
-use App\Jobs\GenerateKimiaPDF;
+use Exception;
+use Illuminate\Support\Facades\Log;
 
 class IndexKimiaController extends Controller
 {
@@ -28,12 +29,30 @@ class IndexKimiaController extends Controller
     
     public function downloadPDF()
     {
-        $kimias = Kimia::all();
-        $pdf = PDF::loadView('kimia.pdf', compact('kimias'));
-        // dd ($pdf);
-        $tmpFile = tempnam(sys_get_temp_dir(), 'kimias_pdf_');
-        $pdf->save($tmpFile);
-        return $pdf->download( 'kimias.pdf');
+        try {
+            $kimias = Kimia::all();
+            $pdf = PDF::loadView('kimia.pdf', compact('kimias'));
+
+            // Check if PDF is generated correctly
+            if (!$pdf) {
+                throw new Exception('PDF generation failed');
+            }
+
+            // Save PDF to a temporary file
+            $tmpFile = tempnam(sys_get_temp_dir(), 'kimias_pdf_');
+            if (!$tmpFile) {
+                throw new Exception('Temporary file creation failed');
+            }
+
+            $pdf->save($tmpFile);
+
+            // Return PDF download
+            return $pdf->download('kimias.pdf');
+        } catch (Exception $e) {
+            // Log the error for debugging
+            Log::error('PDF download error: ' . $e->getMessage());
+            return response()->json(['error' => 'PDF download failed'], 500);
+        }
     }
 
     /**
