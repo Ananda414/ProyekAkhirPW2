@@ -99,8 +99,8 @@ class IndexKimiaController extends Controller
             // Generate a new filename for the new photo
             $new_filename = $validasi['nama']. ".".$ext;
 
-            // Store the new photo in the public/assets/images/list folder
-            $request->foto->storeAs('public/assets/images/list', $new_filename);
+            // Store the new photo in the public/images folder
+            $request->foto->storeAs('public/images', $new_filename);
 
             // Update the photo field in the database with the new filename
             $kimia->foto = $new_filename;
