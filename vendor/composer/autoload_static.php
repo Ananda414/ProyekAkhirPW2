@@ -618,6 +618,7 @@ class ComposerStaticInitda3d554a09034a7e886771c7047ca233
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
         'App\\Http\\Requests\\ProfileUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileUpdateRequest.php',
+        'App\\Jobs\\GenerateKimiaPDF' => __DIR__ . '/../..' . '/app/Jobs/GenerateKimiaPDF.php',
         'App\\Models\\Kimia' => __DIR__ . '/../..' . '/app/Models/Kimia.php',
         'App\\Models\\Komputer' => __DIR__ . '/../..' . '/app/Models/Komputer.php',
         'App\\Models\\Resep' => __DIR__ . '/../..' . '/app/Models/Resep.php',

@@ -47,6 +47,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\Auth\\LoginRequest' => $baseDir . '/app/Http/Requests/Auth/LoginRequest.php',
     'App\\Http\\Requests\\ProfileUpdateRequest' => $baseDir . '/app/Http/Requests/ProfileUpdateRequest.php',
+    'App\\Jobs\\GenerateKimiaPDF' => $baseDir . '/app/Jobs/GenerateKimiaPDF.php',
     'App\\Models\\Kimia' => $baseDir . '/app/Models/Kimia.php',
     'App\\Models\\Komputer' => $baseDir . '/app/Models/Komputer.php',
     'App\\Models\\Resep' => $baseDir . '/app/Models/Resep.php',
