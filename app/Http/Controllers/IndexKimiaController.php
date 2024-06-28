@@ -30,11 +30,10 @@ class IndexKimiaController extends Controller
     {
         $kimias = Kimia::all();
         $pdf = PDF::loadView('kimia.pdf', compact('kimias'));
+        // dd ($pdf);
         $tmpFile = tempnam(sys_get_temp_dir(), 'kimias_pdf_');
         $pdf->save($tmpFile);
-        return response()->download($tmpFile, 'kimias.pdf', [
-            'Content-Type' => 'application/pdf',
-        ]);
+        return $pdf->download( 'kimias.pdf');
     }
 
     /**
